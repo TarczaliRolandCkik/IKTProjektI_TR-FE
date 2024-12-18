@@ -15,6 +15,18 @@ for i in range (len(t)):
 print()
 
 
+# a
+maxi=0
+i=0
+for i in range(0,len(t),1):
+    if t[i]>t[maxi]:
+        maxi=i
+print(f"{maxi}. héten volt a legnagyobb nyereségünk")
+
+
+
+
+
 # b
 osszeg=0
 for i in range (len(t)):
