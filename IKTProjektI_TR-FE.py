@@ -50,15 +50,39 @@ else:
 db=0
 maxny=0
 maxj=0
-sorozatvege=0
-
 for i in range(len(t)):
     if (t[i]>0):
-        if maxj==0:
-            db+=1
-        maxj+=1
-    else:
-        if(maxj>maxny):
-            maxj==maxny
+        db+=1
+        if (db>0 and not(db<0)):
+            maxj=db
+        elif(db<0):
+            maxj!=db
+        maxny=maxj
+    
 print(f" {maxny} napon keresztül volt nyerőszérriánk")
 
+max_hossz = 0 
+jelenlegi_hossz = 0 
+kezd_het = 0 
+veg_het = 0 
+legjobb_kezd_het = 0 
+legjobb_veg_het = 0 
+for i in range(len(t)): 
+    if t[i]>0: 
+        if jelenlegi_hossz==0: 
+            kezd_het=i+1 
+            jelenlegi_hossz+=1 
+        else: 
+            if jelenlegi_hossz>max_hossz: 
+                max_hossz=jelenlegi_hossz 
+                legjobb_kezd_het=kezd_het 
+                legjobb_veg_het=i 
+                jelenlegi_hossz=0 
+            if jelenlegi_hossz>max_hossz: 
+                max_hossz=jelenlegi_hossz 
+                legjobb_kezd_het=kezd_het 
+                legjobb_veg_het=len(t) 
+if max_hossz>0: 
+    print(f"A {legjobb_kezd_het}. és {legjobb_veg_het}. hét között volt {max_hossz} héten keresztül a leghosszabb nyerő sorozat.") 
+else:
+     print("Nincs nyerő sorozat.")
